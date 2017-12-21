@@ -1,0 +1,11 @@
+.container{
+
+}
+
+
+.box{
+    display: inline-block;
+    border: solid 1px black;
+    width: 100px;
+    height: 20px;
+}

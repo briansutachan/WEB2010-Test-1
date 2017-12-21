@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box">          
+        </div>
+        <div class="box"><th>Bitcoin</th>
+        </div>
+        <div class="box">
+        </div>
+        <div class="box">
+        </div>
+        <div class="box">
+        </div>
+        <div class="box">
+        </div>
+        <div class="box">
+         </div>
+    </div>
+    <div class="container">
+            <div class="box">Prices         
+                </div>
+                <div class="box"><td></td>
+                </div>
+                <div class="box">
+                </div>
+                <div class="box">
+                </div>
+                <div class="box">
+                </div>
+                <div class="box">
+                </div>
+                <div class="box">  <td></td>                  
+                </div>
+                
+
+    </div>
+
+
+
+
+        <script
+        src="http://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+
+    <script>
+        const url = "https://bitpay.com/api/rates"
+
+        // Grab elements fromthe DOM in an array (Nodelist) we are gonna call it for now elements
+
+
+        const elements = []
+        class BitCoin{
+            constructor(url, elements){
+                this.url = url
+                this.td = elements
+                this.getPrices(this.url, this.td)
+                this.refresh = this.refresh.bind(this)
+            }
+            setPrices(td, prices){
+                    // More stuff will happen here 
+            }
+            getPrices(URL, td){
+                // console.log(`Ready for get Prices`)
+                $.ajax({
+                    url: URL,
+                    dataType: "json",
+                    success: function(data){
+                        console.log(data)
+                        // some stuff
+                        this.setPrices(td)
+
+                    },
+                    error: function(error){
+                        console.log("ERRRRROOOORRRRRRR!!!!!!")
+                    }
+
+                })
+                
+            }
+            refresh(){
+                this.getPrices()
+            }
+        }
+
+        let price = new BitCoin(url, elements)
+        console.log(price.url)
+    
+    </script>
+    
+</body>
+</html>
